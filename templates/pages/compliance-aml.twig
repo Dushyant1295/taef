@@ -18,9 +18,10 @@
     <div class="img-box position-relative">
       <img src="{{ theme.link ~ '/src/img/about/map.jpg' }}" alt="World Map" />
 
-      <!-- Map Labels -->
+      <!-- LEFT SIDE REGIONS -->
       <div
         class="map-label d-flex flex-column align-items-center"
+        data-side="left"
         data-region="North America"
         data-details="• United States of America<br>• Canada"
         style="top: 40%; left: 25%"
@@ -31,6 +32,7 @@
 
       <div
         class="map-label d-flex flex-column align-items-center"
+        data-side="left"
         data-region="Latin America & Caribbean"
         data-details="• Mexico<br>• Brazil<br>• Argentina"
         style="top: 70%; left: 35%"
@@ -41,6 +43,7 @@
 
       <div
         class="map-label d-flex flex-column align-items-center"
+        data-side="left"
         data-region="Sub-Saharan Africa"
         data-details="• Nigeria<br>• Kenya<br>• South Africa"
         style="top: 55%; left: 48%"
@@ -49,8 +52,10 @@
         <span class="label-text">Sub-Saharan Africa</span>
       </div>
 
+      <!-- RIGHT SIDE REGIONS -->
       <div
         class="map-label d-flex align-items-center"
+        data-side="right"
         data-region="Europe & Central Asia"
         data-details="• United Kingdom<br>• Germany<br>• Russia"
         style="top: 25%; left: 60%"
@@ -61,6 +66,7 @@
 
       <div
         class="map-label d-flex flex-column align-items-center"
+        data-side="right"
         data-region="Middle East & North Africa"
         data-details="• Egypt<br>• Saudi Arabia<br>• Morocco"
         style="top: 45%; left: 62%"
@@ -71,6 +77,7 @@
 
       <div
         class="map-label d-flex align-items-center"
+        data-side="right"
         data-region="East Asia & Pacific"
         data-details="• China<br>• Japan<br>• Australia"
         style="top: 40%; left: 80%"
@@ -85,7 +92,7 @@
       id="right-info-box"
       class="d-flex flex-column align-items-center text-center"
     >
-      <h2 class="mb-4" id="right-region-title">Europe & Central Asia</h2>
+      <h4 class="mb-4" id="right-region-title">Europe & Central Asia</h4>
       <p class="text-start w-75" id="right-region-details">
         United Kingdom<br />Germany<br />Russia
       </p>
@@ -105,41 +112,36 @@
     if (side === "left") {
       leftTitle.textContent = region;
       leftDetails.innerHTML = details;
-    } else if (side === "right") {
+    } else {
       rightTitle.textContent = region;
       rightDetails.innerHTML = details;
     }
   }
 
   mapLabels.forEach((label) => {
-    label.addEventListener("click", () => {
+    label.addEventListener("mouseenter", () => {
       const region = label.dataset.region;
       const details = label.dataset.details;
-
-      // Check if label uses flex-column
-      const isColumn = label.classList.contains("flex-column");
-      const side = isColumn ? "left" : "right";
+      const side = label.dataset.side; // LEFT or RIGHT (fixed!)
 
       updateInfoBox(side, region, details);
-
-      // Optional: highlight selected
-      mapLabels.forEach((l) => l.classList.remove("active"));
-      label.classList.add("active");
     });
   });
 
-  // Set default left & right
+  // DEFAULT LEFT & RIGHT
   window.addEventListener("DOMContentLoaded", () => {
-    const leftDefault = document.querySelector(".map-label.flex-column");
+    const leftDefault = document.querySelector('.map-label[data-side="left"]');
     const rightDefault = document.querySelector(
-      ".map-label.d-flex:not(.flex-column)"
+      '.map-label[data-side="right"]'
     );
+
     if (leftDefault)
       updateInfoBox(
         "left",
         leftDefault.dataset.region,
         leftDefault.dataset.details
       );
+
     if (rightDefault)
       updateInfoBox(
         "right",
