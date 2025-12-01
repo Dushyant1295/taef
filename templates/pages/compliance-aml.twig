@@ -1,15 +1,16 @@
-{% extends "base.twig" %}
-{% block content %}
+{% extends "base.twig" %} {% block content %}
 
 <section class="bg-white sy">
   <div class="container d-flex align-items-center gap-3">
-
     <!-- Left Info Box -->
-    <div id="left-info-box" class="d-flex flex-column align-items-center text-center">
-      <h2 class="mb-4" id="left-region-title">North America</h2>
-      <p class="text-start w-75" id="left-region-details">
-        United States of America<br />
-        Canada
+    <div
+      id="left-info-box"
+      class="d-flex flex-column align-items-center text-center"
+    >
+      <h4 class="mb-4" id="left-region-title">North America</h4>
+      <p id="left-region-details">
+        • United States of America<br />
+        • Canada
       </p>
     </div>
 
@@ -18,63 +19,77 @@
       <img src="{{ theme.link ~ '/src/img/about/map.jpg' }}" alt="World Map" />
 
       <!-- Map Labels -->
-      <div class="map-label d-flex flex-column align-items-center" 
-           data-region="North America"
-           data-details="United States of America<br>Canada"
-           style="top: 40%; left: 25%;">
+      <div
+        class="map-label d-flex flex-column align-items-center"
+        data-region="North America"
+        data-details="• United States of America<br>• Canada"
+        style="top: 40%; left: 25%"
+      >
         <span class="dot"></span>
         <span class="label-text">North America</span>
       </div>
 
-      <div class="map-label d-flex flex-column align-items-center" 
-           data-region="Latin America & Caribbean"
-           data-details="Mexico<br>Brazil<br>Argentina"
-           style="top: 70%; left: 35%;">
+      <div
+        class="map-label d-flex flex-column align-items-center"
+        data-region="Latin America & Caribbean"
+        data-details="• Mexico<br>• Brazil<br>• Argentina"
+        style="top: 70%; left: 35%"
+      >
         <span class="dot"></span>
         <span class="label-text">Latin America & Caribbean</span>
       </div>
 
-      <div class="map-label d-flex flex-column align-items-center" 
-           data-region="Sub-Saharan Africa"
-           data-details="Nigeria<br>Kenya<br>South Africa"
-           style="top: 55%; left: 48%;">
+      <div
+        class="map-label d-flex flex-column align-items-center"
+        data-region="Sub-Saharan Africa"
+        data-details="• Nigeria<br>• Kenya<br>• South Africa"
+        style="top: 55%; left: 48%"
+      >
         <span class="dot"></span>
         <span class="label-text">Sub-Saharan Africa</span>
       </div>
 
-      <div class="map-label d-flex align-items-center" 
-           data-region="Europe & Central Asia"
-           data-details="United Kingdom<br>Germany<br>Russia"
-           style="top: 25%; left: 60%;">
+      <div
+        class="map-label d-flex align-items-center"
+        data-region="Europe & Central Asia"
+        data-details="• United Kingdom<br>• Germany<br>• Russia"
+        style="top: 25%; left: 60%"
+      >
         <span class="dot"></span>
         <span class="label-text">Europe & Central Asia</span>
       </div>
 
-      <div class="map-label d-flex flex-column align-items-center" 
-           data-region="Middle East & North Africa"
-           data-details="Egypt<br>Saudi Arabia<br>Morocco"
-           style="top: 45%; left: 62%;">
+      <div
+        class="map-label d-flex flex-column align-items-center"
+        data-region="Middle East & North Africa"
+        data-details="• Egypt<br>• Saudi Arabia<br>• Morocco"
+        style="top: 45%; left: 62%"
+      >
         <span class="dot"></span>
         <span class="label-text">Middle East & North Africa</span>
       </div>
 
-      <div class="map-label d-flex align-items-center" 
-           data-region="East Asia & Pacific"
-           data-details="China<br>Japan<br>Australia"
-           style="top: 40%; left: 80%;">
+      <div
+        class="map-label d-flex align-items-center"
+        data-region="East Asia & Pacific"
+        data-details="• China<br>• Japan<br>• Australia"
+        style="top: 40%; left: 80%"
+      >
         <span class="dot"></span>
         <span class="label-text">East Asia & Pacific</span>
       </div>
     </div>
 
     <!-- Right Info Box -->
-    <div id="right-info-box" class="d-flex flex-column align-items-center text-center">
+    <div
+      id="right-info-box"
+      class="d-flex flex-column align-items-center text-center"
+    >
       <h2 class="mb-4" id="right-region-title">Europe & Central Asia</h2>
       <p class="text-start w-75" id="right-region-details">
-        United Kingdom<br>Germany<br>Russia
+        United Kingdom<br />Germany<br />Russia
       </p>
     </div>
-
   </div>
 </section>
 
@@ -96,7 +111,7 @@
     }
   }
 
-  mapLabels.forEach(label => {
+  mapLabels.forEach((label) => {
     label.addEventListener("click", () => {
       const region = label.dataset.region;
       const details = label.dataset.details;
@@ -108,41 +123,49 @@
       updateInfoBox(side, region, details);
 
       // Optional: highlight selected
-      mapLabels.forEach(l => l.classList.remove("active"));
+      mapLabels.forEach((l) => l.classList.remove("active"));
       label.classList.add("active");
     });
   });
 
   // Set default left & right
   window.addEventListener("DOMContentLoaded", () => {
-    const leftDefault = document.querySelector('.map-label.flex-column');
-    const rightDefault = document.querySelector('.map-label.d-flex:not(.flex-column)');
-    if (leftDefault) updateInfoBox("left", leftDefault.dataset.region, leftDefault.dataset.details);
-    if (rightDefault) updateInfoBox("right", rightDefault.dataset.region, rightDefault.dataset.details);
+    const leftDefault = document.querySelector(".map-label.flex-column");
+    const rightDefault = document.querySelector(
+      ".map-label.d-flex:not(.flex-column)"
+    );
+    if (leftDefault)
+      updateInfoBox(
+        "left",
+        leftDefault.dataset.region,
+        leftDefault.dataset.details
+      );
+    if (rightDefault)
+      updateInfoBox(
+        "right",
+        rightDefault.dataset.region,
+        rightDefault.dataset.details
+      );
   });
 </script>
 
-
-
-
 <section class="compliance-aml-page">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1>{{ post.title }}</h1>
-                {{ post.content }}
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>{{ post.title }}</h1>
+        {{ post.content }}
+      </div>
     </div>
+  </div>
 </section>
- 
+
 <div class="bg-purple">
   <div class="vh-25"></div>
 
-
- 
-
-  <section class="bg-purple container sy d-flex flex-column align-items-center strategy-card-container">
+  <section
+    class="bg-purple container sy d-flex flex-column align-items-center strategy-card-container"
+  >
     <h4>Strategy statement</h4>
     <p class="w-75 text-center mt-5 mb-10">
       In a transformative year, The Arab Energy Fund (TAEF) has redefined its
@@ -153,7 +176,10 @@
     <div class="container">
       <div class="d-flex gap-3">
         <div class="col-lg-6 d-flex gap-2 strategy-card p-3 rounded">
-          <img src="{{ theme.link ~ '/src/img/about/core-principle-img.png'}}" alt="" />
+          <img
+            src="{{ theme.link ~ '/src/img/about/core-principle-img.png'}}"
+            alt=""
+          />
           <div class="d-flex flex-column justify-content-center gap-1">
             <h5>
               Core Principles <br />
@@ -170,7 +196,10 @@
           </div>
         </div>
         <div class="col-lg-6 d-flex gap-2 strategy-card p-3 rounded">
-          <img src="{{ theme.link ~ '/src/img/about/windmil-img.png'}}" alt="" />
+          <img
+            src="{{ theme.link ~ '/src/img/about/windmil-img.png'}}"
+            alt=""
+          />
           <div class="d-flex flex-column justify-content-center gap-1">
             <h5>
               Core Principles <br />
@@ -187,10 +216,16 @@
           </div>
         </div>
       </div>
-      <img class="strategy-sec-bg strategy-bg" src="{{ theme.link ~ '/src/img/about/strategy-sec-bg-svg.svg'}}"
-        alt="" />
-      <img class="strategy-sec-bg-left strategy-bg"
-        src="{{ theme.link ~ '/src/img/about/strategy-sec-bg-left-svg.svg'}}" alt="" />
+      <img
+        class="strategy-sec-bg strategy-bg"
+        src="{{ theme.link ~ '/src/img/about/strategy-sec-bg-svg.svg'}}"
+        alt=""
+      />
+      <img
+        class="strategy-sec-bg-left strategy-bg"
+        src="{{ theme.link ~ '/src/img/about/strategy-sec-bg-left-svg.svg'}}"
+        alt=""
+      />
     </div>
   </section>
 
@@ -210,8 +245,14 @@
             Postal Code: 13523 Riyadh, Saudi Arabia
           </p>
 
-          <a href="tel:+97317563777"><img class="" src="{{ theme.link ~ '/src/img/about/call-icon-svg.svg'}}" alt="" />
-            +966 (0)11 4517340 / 920002262</a>
+          <a href="tel:+97317563777"
+            ><img
+              class=""
+              src="{{ theme.link ~ '/src/img/about/call-icon-svg.svg'}}"
+              alt=""
+            />
+            +966 (0)11 4517340 / 920002262</a
+          >
         </div>
         <img src="" alt="" />
       </div>
@@ -280,12 +321,19 @@
         </p>
       </div>
     </div>
-    <img class="benefit-sec-bg" src="{{ theme.link ~ '/src/img/about/benefit-sec-bg-svg.svg'}}" alt="" />
+    <img
+      class="benefit-sec-bg"
+      src="{{ theme.link ~ '/src/img/about/benefit-sec-bg-svg.svg'}}"
+      alt=""
+    />
   </section>
 
   <section class="sy bg-purple container">
     <div class="d-flex gap-3">
-      <img src="{{ theme.link ~ '/src/img/about/worklife-balance-svg.svg'}}" alt="" />
+      <img
+        src="{{ theme.link ~ '/src/img/about/worklife-balance-svg.svg'}}"
+        alt=""
+      />
       <div class="work-life-balance">
         <p>Work-life balance</p>
       </div>
@@ -336,7 +384,5 @@
 
   <div class="vh-25 bg-white"></div>
 </div>
-
- 
 
 {% endblock %}
