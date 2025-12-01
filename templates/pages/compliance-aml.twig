@@ -1,99 +1,107 @@
 {% extends "base.twig" %} {% block content %}
 
 <section class="bg-white sy">
-  <div class="container d-flex align-items-center gap-3">
-    <!-- Left Info Box -->
-    <div
-      id="left-info-box"
-      class="d-flex flex-column align-items-center text-left text-class"
-    >
-      <h4>North America</h4>
-      <p>
-        • United States of America<br />
-        • Canada
-      </p>
-    </div>
-
-    <!-- Map Box -->
-    <div class="img-box position-relative">
-      <img src="{{ theme.link ~ '/src/img/about/map.jpg' }}" alt="World Map" />
-
-      <!-- LEFT SIDE REGIONS -->
-      <div
-        class="map-label d-flex flex-column align-items-center"
-        data-side="left"
-        data-region="North America"
-        data-details="• United States of America<br>• Canada"
-        style="top: 40%; left: 25%"
-      >
-        <span class="dot"></span>
-        <span>North America</span>
+  <div class="container">
+    <div class="row align-items-center g-2">
+      <!-- LEFT COLUMN -->
+      <div class="col-lg-3 col-md-4 col-12">
+        <div id="left-info-box" class="d-flex flex-column text-left text-class">
+          <h4>North America</h4>
+          <p>
+            • United States of America<br />
+            • Canada
+          </p>
+        </div>
       </div>
 
-      <div
-        class="map-label d-flex flex-column align-items-center"
-        data-side="left"
-        data-region="Latin America & Caribbean"
-        data-details="• Mexico<br>• Brazil<br>• Argentina"
-        style="top: 70%; left: 35%"
-      >
-        <span class="dot"></span>
-        <span>Latin America & Caribbean</span>
+      <!-- MAP COLUMN -->
+      <div class="col-lg-6 col-md-4 col-12">
+        <div class="img-box">
+          <img
+            src="{{ theme.link ~ '/src/img/about/map.jpg' }}"
+            alt="World Map"
+          />
+
+          <!-- LEFT SIDE REGIONS -->
+          <div
+            class="map-label d-flex flex-column align-items-center"
+            data-side="left"
+            data-region="North America"
+            data-details="• United States of America<br>• Canada"
+            style="top: 40%; left: 25%"
+          >
+            <span class="dot"></span>
+            <span>North America</span>
+          </div>
+
+          <div
+            class="map-label d-flex flex-column align-items-center"
+            data-side="left"
+            data-region="Latin America & Caribbean"
+            data-details="• Mexico<br>• Brazil<br>• Argentina"
+            style="top: 70%; left: 35%"
+          >
+            <span class="dot"></span>
+            <span>Latin America & Caribbean</span>
+          </div>
+
+          <div
+            class="map-label d-flex flex-column align-items-center"
+            data-side="left"
+            data-region="Sub-Saharan Africa"
+            data-details="• Nigeria<br>• Kenya<br>• South Africa"
+            style="top: 55%; left: 48%"
+          >
+            <span class="dot"></span>
+            <span>Sub-Saharan Africa</span>
+          </div>
+
+          <!-- RIGHT SIDE REGIONS -->
+          <div
+            class="map-label d-flex align-items-center"
+            data-side="right"
+            data-region="Europe & Central Asia"
+            data-details="• United Kingdom<br>• Germany<br>• Russia"
+            style="top: 25%; left: 60%"
+          >
+            <span class="dot"></span>
+            <span>Europe & Central Asia</span>
+          </div>
+
+          <div
+            class="map-label d-flex flex-column align-items-center"
+            data-side="right"
+            data-region="Middle East & North Africa"
+            data-details="• Egypt<br>• Saudi Arabia<br>• Morocco"
+            style="top: 45%; left: 62%"
+          >
+            <span class="dot"></span>
+            <span>Middle East & North Africa</span>
+          </div>
+
+          <div
+            class="map-label d-flex align-items-center"
+            data-side="right"
+            data-region="East Asia & Pacific"
+            data-details="• China<br>• Japan<br>• Australia"
+            style="top: 40%; left: 80%"
+          >
+            <span class="dot"></span>
+            <span>East Asia & Pacific</span>
+          </div>
+        </div>
       </div>
 
-      <div
-        class="map-label d-flex flex-column align-items-center"
-        data-side="left"
-        data-region="Sub-Saharan Africa"
-        data-details="• Nigeria<br>• Kenya<br>• South Africa"
-        style="top: 55%; left: 48%"
-      >
-        <span class="dot"></span>
-        <span>Sub-Saharan Africa</span>
+      <!-- RIGHT COLUMN -->
+      <div class="col-lg-3 col-md-4 col-12">
+        <div
+          id="right-info-box"
+          class="d-flex flex-column text-left text-class"
+        >
+          <h4>Europe & Central Asia</h4>
+          <p>United Kingdom<br />Germany<br />Russia</p>
+        </div>
       </div>
-
-      <!-- RIGHT SIDE REGIONS -->
-      <div
-        class="map-label d-flex align-items-center"
-        data-side="right"
-        data-region="Europe & Central Asia"
-        data-details="• United Kingdom<br>• Germany<br>• Russia"
-        style="top: 25%; left: 60%"
-      >
-        <span class="dot"></span>
-        <span>Europe & Central Asia</span>
-      </div>
-
-      <div
-        class="map-label d-flex flex-column align-items-center"
-        data-side="right"
-        data-region="Middle East & North Africa"
-        data-details="• Egypt<br>• Saudi Arabia<br>• Morocco"
-        style="top: 45%; left: 62%"
-      >
-        <span class="dot"></span>
-        <span>Middle East & North Africa</span>
-      </div>
-
-      <div
-        class="map-label d-flex align-items-center"
-        data-side="right"
-        data-region="East Asia & Pacific"
-        data-details="• China<br>• Japan<br>• Australia"
-        style="top: 40%; left: 80%"
-      >
-        <span class="dot"></span>
-        <span>East Asia & Pacific</span>
-      </div>
-    </div>
-
-    <!-- Right Info Box -->
-    <div
-      id="right-info-box"
-      class="d-flex flex-column align-items-center text-left text-class"
-    >
-      <h4>Europe & Central Asia</h4>
-      <p>United Kingdom<br />Germany<br />Russia</p>
     </div>
   </div>
 </section>
