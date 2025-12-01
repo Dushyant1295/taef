@@ -7,7 +7,7 @@
   height: 100%;
   max-width: 778.77px;
   max-height: 375px;
-//   border: 2px solid red;
+  //   border: 2px solid red;
   margin-block: 3rem;
 
   img {
@@ -20,7 +20,7 @@
   .map-label {
     position: absolute;
     gap: 0.5rem;
-    color:#3E0937; // Bootstrap text color
+    color: #3e0937; // Bootstrap text color
     transform: translate(-50%, -50%); // center around coordinates
 
     .dot {
@@ -29,9 +29,16 @@
       border-radius: 50%;
       background-color: #dc3545; // Bootstrap 'danger' red
     }
-    .label-text{
-        font-size: 1.45rem;
-    }
+  }
+}
+
+.text-class {
+  h4 {
+    margin-bottom: 1.5rem;
+  }
+  p {
+    text-align: start;
+    align-self: self-start;
   }
 }
 
