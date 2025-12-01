@@ -7,8 +7,8 @@
       id="left-info-box"
       class="d-flex flex-column align-items-center text-left text-class"
     >
-      <h4 id="left-region-title">North America</h4>
-      <p id="left-region-details">
+      <h4>North America</h4>
+      <p>
         • United States of America<br />
         • Canada
       </p>
@@ -92,8 +92,8 @@
       id="right-info-box"
       class="d-flex flex-column align-items-center text-left text-class"
     >
-      <h4 id="right-region-title">Europe & Central Asia</h4>
-      <p id="right-region-details">United Kingdom<br />Germany<br />Russia</p>
+      <h4>Europe & Central Asia</h4>
+      <p>United Kingdom<br />Germany<br />Russia</p>
     </div>
   </div>
 </section>
@@ -101,10 +101,15 @@
 <script>
   const mapLabels = document.querySelectorAll(".map-label");
 
-  const leftTitle = document.getElementById("left-region-title");
-  const leftDetails = document.getElementById("left-region-details");
-  const rightTitle = document.getElementById("right-region-title");
-  const rightDetails = document.getElementById("right-region-details");
+  const leftBox = document.getElementById("left-info-box");
+  const rightBox = document.getElementById("right-info-box");
+
+  // select children inside each info box
+  const leftTitle = leftBox.querySelector("h4");
+  const leftDetails = leftBox.querySelector("p");
+
+  const rightTitle = rightBox.querySelector("h4");
+  const rightDetails = rightBox.querySelector("p");
 
   function updateInfoBox(side, region, details) {
     if (side === "left") {
@@ -120,7 +125,7 @@
     label.addEventListener("mouseenter", () => {
       const region = label.dataset.region;
       const details = label.dataset.details;
-      const side = label.dataset.side; // LEFT or RIGHT (fixed!)
+      const side = label.dataset.side;
 
       updateInfoBox(side, region, details);
     });
